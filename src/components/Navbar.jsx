@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { TicketEventABI, TicketEventAddress } from '../contract';
+import Logo from '../assets/ticketangel.png';
 
 function Navbar({ account, setAccount, tokens, setTicketEventBlockchain }) {
     const openWithMetaMask = async () => {
@@ -21,7 +22,7 @@ function Navbar({ account, setAccount, tokens, setTicketEventBlockchain }) {
         <nav className="navbar navbar-light bg-light">
             <div className="container">
                 <Link className="navbar-brand mb-0 h1 p-0" to="/">
-                   <p>Ticket Angel</p>
+                    <img style={{ width: '180px' }} src={Logo} alt="Ticket Angel" />
                 </Link>
                 <div className="d-flex align-items-center">
                     {account && <p className="badge mt-3 mr-3">

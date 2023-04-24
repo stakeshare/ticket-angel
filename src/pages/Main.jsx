@@ -40,7 +40,7 @@ function Main({ ticketEventBlockchain, }) {
                                 <h2><Link to={`/event/${ticketEvent.eventId}`}>{ticketEvent.name}</Link></h2>
                                 <p><strong>Start Date:</strong> {ticketEvent.date} {ticketEvent.time}</p>
                                 <p><strong>Location: </strong>{ticketEvent.location}</p>
-                                <p><strong>Cost: </strong>{ethers.utils.formatEther(ticketEvent.ticketPrice.toString())} ETH</p>
+                                <p><strong>Cost: </strong>{ethers.utils.formatEther(ticketEvent.ticketPrice.toString())} BIT</p>
                             </div>
                             <div className="col-sm-6 d-flex flex-column align-items-end">
                                 <Link className="btn btn-outline-warning btn-lg mt-4 mb-2" style={{ width: '250px'}} to={`/event/${ticketEvent.eventId}`}>
