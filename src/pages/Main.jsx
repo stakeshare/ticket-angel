@@ -27,7 +27,7 @@ function Main({ ticketEventBlockchain, }) {
             <div className="d-flex justify-content-between align-items-center">
                 <h1>List of Events</h1>
                 <Link to="/eventregistration" className="btn btn-danger btn-lg my-3">
-                    Register Event
+                    Create Event
                 </Link>
             </div>
            
