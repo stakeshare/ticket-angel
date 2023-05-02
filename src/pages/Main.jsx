@@ -1,25 +1,18 @@
 import React,{ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ethers } from 'ethers';
+import { db } from '../ticketData';
 
 function Main({ ticketEventBlockchain, }) {
     const [ticketEvents, setTicketEvents] = useState([]);
 
     useEffect(() => {
         const getTicketEvents = async () => {
-            let temp = [];
-
-            const ticketEventCount = await ticketEventBlockchain.ticketEventCount();
-
-            for(let i = 0; i < ticketEventCount; i++){
-                const event = await ticketEventBlockchain.tickets(i + 1);
-                temp.push(event);
-            }
-
-            setTicketEvents(temp);
+            const { data } = await db.collection("Ticket").get();
+            setTicketEvents(data);
         }
-        if(ticketEventBlockchain) getTicketEvents();
-    }, [ticketEventBlockchain])
+        getTicketEvents();
+    }, [])
 
     
     return (
@@ -33,20 +26,20 @@ function Main({ ticketEventBlockchain, }) {
            
 
             { ticketEvents.map(ticketEvent => (
-                <div className="card" key={ticketEvent.eventId}>
+                <div className="card" key={ticketEvent.data.id}>
                     <div className="card-body">
                         <div className="row">
                             <div className="col-sm-6" >
-                                <h2><Link to={`/event/${ticketEvent.eventId}`}>{ticketEvent.name}</Link></h2>
-                                <p><strong>Start Date:</strong> {ticketEvent.date} {ticketEvent.time}</p>
-                                <p><strong>Location: </strong>{ticketEvent.location}</p>
-                                <p><strong>Cost: </strong>{ethers.utils.formatEther(ticketEvent.ticketPrice.toString())} BIT</p>
+                                <h2><Link to={`/event/${ticketEvent.data.id}`}>{ticketEvent.data.name}</Link></h2>
+                                <p><strong>Start Date:</strong> {ticketEvent.data.startDate}</p>
+                                <p><strong>Location: </strong>{ticketEvent.data.location}</p>
+                                <p><strong>Cost: </strong>{ticketEvent.data.weiAmount} BIT</p>
                             </div>
                             <div className="col-sm-6 d-flex flex-column align-items-end">
-                                <Link className="btn btn-outline-warning btn-lg mt-4 mb-2" style={{ width: '250px'}} to={`/event/${ticketEvent.eventId}`}>
+                                <Link className="btn btn-outline-warning btn-lg mt-4 mb-2" style={{ width: '250px'}} to={`/event/${ticketEvent.data.id}`}>
                                     See Event Detail
                                 </Link>
-                                <Link className="btn btn-outline-danger btn-lg" style={{ width: '250px'}} to={`/event/${ticketEvent.eventId}`}>
+                                <Link className="btn btn-outline-danger btn-lg" style={{ width: '250px'}} to={`/event/${ticketEvent.data.id}`}>
                                     Earn Promotion Reward
                                 </Link>
                             </div>

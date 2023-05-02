@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
+import { db } from '../ticketData';
 
-function EventRegistration({ ticketEventBlockchain, setTicketEventCount, account }) {
+function EventRegistration({ ticketEventBlockchain, account }) {
     const history = useNavigate();
 
     const [name, setName] = useState('');
@@ -22,6 +23,7 @@ function EventRegistration({ ticketEventBlockchain, setTicketEventCount, account
             const transaction = await ticketEventBlockchain.createEvent(name, description, startDate, location, weiAmount, quantity, filePath);
             const tx = await transaction.wait();
             console.log(tx);
+            await db.collection("Ticket").create(["1", name, description, startDate, location, ticketPrice, quantity, filePath]); 
             
             history('/');
         }

@@ -64,12 +64,8 @@ function App() {
             } />
         <Route
           path="/"
-          element={
-            account
-              ? <Main
-                  ticketEventBlockchain={ticketEventBlockchain} />
-              : <div className="container pt-3"><h1>Connect to your wallet</h1></div>
-            } />
+          element={<Main ticketEventBlockchain={ticketEventBlockchain} />}
+          />
       </Routes>
     </Router>
   );
