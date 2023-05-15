@@ -33,7 +33,7 @@ function Main({ ticketEventBlockchain, }) {
                                 <h2><Link to={`/event/${ticketEvent.data.id}`}>{ticketEvent.data.name}</Link></h2>
                                 <p><strong>Start Date:</strong> {ticketEvent.data.startDate}</p>
                                 <p><strong>Location: </strong>{ticketEvent.data.location}</p>
-                                <p><strong>Cost: </strong>{ticketEvent.data.weiAmount} BIT</p>
+                                <p><strong>Cost: </strong>{ticketEvent.data.weiAmount} BNB</p>
                             </div>
                             <div className="col-sm-6 d-flex flex-column align-items-end">
                                 <Link className="btn btn-outline-warning btn-lg mt-4 mb-2" style={{ width: '250px'}} to={`/event/${ticketEvent.data.id}`}>

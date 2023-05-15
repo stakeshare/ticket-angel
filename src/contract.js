@@ -1,3 +1,4 @@
+// export const TicketTokenAddress = "0xFd0785e86b31D8e11F5Bb2DA396Ef1A8F57eb8ff";
 export const TicketTokenAddress = "0xFd0785e86b31D8e11F5Bb2DA396Ef1A8F57eb8ff";
 export const TicketTokenABI = [
 	{
@@ -346,6 +347,7 @@ export const TicketTokenABI = [
 	}
 ]
 
+// export const TicketEventAddress = "0x6222ee600418ebC69BEe8Be26C2d96Fd8BCbBB6a";
 export const TicketEventAddress = "0x6222ee600418ebC69BEe8Be26C2d96Fd8BCbBB6a";
 export const TicketEventABI = [
 	{

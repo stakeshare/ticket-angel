@@ -22,7 +22,6 @@ function EventRegistration({ ticketEventBlockchain, account }) {
             const weiAmount = new ethers.utils.parseUnits(ticketPrice, 'ether');
             const transaction = await ticketEventBlockchain.createEvent(name, description, startDate, location, weiAmount, quantity, filePath);
             const tx = await transaction.wait();
-            console.log(tx);
             await db.collection("Ticket").create(["1", name, description, startDate, location, ticketPrice, quantity, filePath]); 
             
             history('/');
@@ -116,7 +115,7 @@ function EventRegistration({ ticketEventBlockchain, account }) {
                         <div className="row">
                             <div className="col">
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Ticket Price (In ETH)</label>
+                                    <label className="font-weight-bold">Ticket Price (In BNB)</label>
                                     <input
                                         className="form-control"
                                         type="number"
@@ -144,7 +143,7 @@ function EventRegistration({ ticketEventBlockchain, account }) {
                                 Register Event
                             </button>
                             <p className="text-muted mt-3 ml-2">
-                                * Registration Cost: 0.1 ETH
+                                * Registration Cost: 0.1 BNB
                             </p>
                         </div>
                         

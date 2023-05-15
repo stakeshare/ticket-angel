@@ -94,7 +94,7 @@ function EventDetail({ ticketEventBlockchain, getBalance, account }) {
                             <p>Location: {ticketEvent?.location}</p>
                             <p>{ticketEvent?.description}</p>
                             <h4>
-                                Ticket Price: {ticketEvent?.ticketPrice && ethers.utils.formatEther(ticketEvent.ticketPrice.toString())} BIT
+                                Ticket Price: {ticketEvent?.ticketPrice && ethers.utils.formatEther(ticketEvent.ticketPrice.toString())} BNB
                             </h4>
                             
                             <p></p>
